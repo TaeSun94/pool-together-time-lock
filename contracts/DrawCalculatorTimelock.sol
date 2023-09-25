@@ -6,6 +6,8 @@ import "@pooltogether/owner-manager-contracts/contracts/Manageable.sol";
 
 import "./interfaces/IDrawCalculatorTimelock.sol";
 
+import "hardhat/console.sol";
+
 /**
   * @title  PoolTogether V4 OracleTimelock
   * @author PoolTogether Inc Team
@@ -112,6 +114,7 @@ contract DrawCalculatorTimelock is IDrawCalculatorTimelock, Manageable {
      */
     function _timelockHasElapsed(Timelock memory _timelock) internal view returns (bool) {
         // If the timelock hasn't been initialized, then it's elapsed
+        console.log(_timelock.timestamp);
         if (_timelock.timestamp == 0) {
             return true;
         }
