@@ -68,5 +68,8 @@
     "contracts/**",
     "deployments/**",
     "deploy/**"
-  ]
+  ],
+  "dependencies": {
+    "@pooltogether/pooltogether-contracts": "^3.4.5"
+  }
 }

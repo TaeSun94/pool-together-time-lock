@@ -70,10 +70,12 @@ describe('BeaconTimelockTrigger', () => {
 
         it('should not allow a push if a draw is still timelocked', async () => {
             await drawCalculatorTimelock.mock.lock.revertsWithReason('OM/timelock-not-expired');
+            console.log("REVERT OK")
             await prizeDistributionFactory.mock.pushPrizeDistribution.returns();
             await expect(
                 drawAndPrizeDistributionTimelock.push(draw, BigNumber.from(1000000)),
-            ).to.be.revertedWith('OM/timelock-not-expired');
+                ).to.be.revertedWith('OM/timelock-not-expired');
+                console.log("REVERT OK")
         });
     });
 });

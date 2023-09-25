@@ -81,7 +81,7 @@ describe('DrawCalculatorTimelock', () => {
             await expect(
                 drawCalculatorTimelock.lock(2, (await getBlock('latest')).timestamp + 100),
             ).to.emit(drawCalculatorTimelock, 'LockedDraw');
-
+            console.log("LOCK: ", (await getBlock('latest')).timestamp + 100)
             const timelock = await drawCalculatorTimelock.getTimelock();
             const currentTimestamp = (await getBlock('latest')).timestamp;
 
